@@ -43,8 +43,4 @@ func show(c *gin.Context) {
 	})
 }
 
-//securepassword123
-// {
-//     "email": "craigdenton@hotmail.com",
-//     "password": "pass121212"
-//   }
+
