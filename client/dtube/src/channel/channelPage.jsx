@@ -10,7 +10,7 @@ export default function ChannelPage() {
   const { auth, setAuth } = useAuth();
 
   const [videos, setVideos] = useState([]);
-  const [channelMeta, setChannelMeta] = useState(null); // 🎯 Tracks channel owner details if video list is empty
+  const [channelMeta, setChannelMeta] = useState(null); //  Tracks channel owner details if video list is empty
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isSubscribed, setIsSubscribed] = useState(false);
