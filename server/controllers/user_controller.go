@@ -141,7 +141,6 @@ func HandleUserSession(c *gin.Context, client *mongo.Client, foundUser model.Use
 	})
 
 	if isOAuth {
-		// 🎯 FIX: Append all necessary data to the query string so React can grab it
 		redirectURL := fmt.Sprintf(
 			"http://localhost:5173/login?token=%s&user_id=%s&first_name=%s",
 			url.QueryEscape(token),
@@ -149,7 +148,6 @@ func HandleUserSession(c *gin.Context, client *mongo.Client, foundUser model.Use
 			url.QueryEscape(foundUser.FirstName),
 		)
 
-		// 🎯 FIX: Changed to StatusFound (302) to prevent permanent browser caching bugs
 		c.Redirect(http.StatusFound, redirectURL)
 		return
 
@@ -219,7 +217,7 @@ func Login(client *mongo.Client) gin.HandlerFunc {
 }
 
 func GoogleLogin(c *gin.Context) {
-	ensureOauthConfig() // 🎯 Prevents nil-pointer panic
+	ensureOauthConfig() // Prevents nil-pointer panic
 	url := GoogleOauthConfig.AuthCodeURL("random_state_string")
 	c.Redirect(http.StatusTemporaryRedirect, url)
 }
@@ -227,7 +225,7 @@ func GoogleLogin(c *gin.Context) {
 func GoogleCallback(client *mongo.Client) gin.HandlerFunc {
 	userCollection := database.Opencollection("users", client)
 	return func(c *gin.Context) {
-		ensureOauthConfig() // 🎯 FIX: Prevents nil-pointer panic during token exchange!
+		ensureOauthConfig() //  Prevents nil-pointer panic during token exchange!
 
 		code := c.Query("code")
 
@@ -391,7 +389,7 @@ func Unsubscribe(client *mongo.Client) gin.HandlerFunc {
 			return
 		}
 
-		// 🎯 FIX: Convert string ID to MongoDB Hex ObjectID (Same as Subscribe)
+		//  Convert string ID to MongoDB Hex ObjectID (Same as Subscribe)
 		objID, err := primitive.ObjectIDFromHex(subscriptionData.UserId)
 		if err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid format layout for user_id"})
@@ -400,7 +398,7 @@ func Unsubscribe(client *mongo.Client) gin.HandlerFunc {
 
 		fmt.Printf("Received unsubscribe request details -> User: %s, Channel: %s\n", subscriptionData.UserId, subscriptionData.SubscribedTo)
 
-		// 🎯 FIX: Change query key from "user_id" to "_id" using the parsed objID
+		// Change query key from "user_id" to "_id" using the parsed objID
 		filter := bson.M{"_id": objID}
 		update := bson.M{"$pull": bson.M{"subscribed": subscriptionData.SubscribedTo}}
 
@@ -418,7 +416,7 @@ func Unsubscribe(client *mongo.Client) gin.HandlerFunc {
 			return
 		}
 
-		// 🎯 FIX: Corrected message string text
+		// Corrected message string text
 		c.JSON(http.StatusOK, gin.H{"message": "Unsubscribed successfully"})
 	}
 }
