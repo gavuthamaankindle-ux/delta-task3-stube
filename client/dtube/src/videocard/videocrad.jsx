@@ -25,7 +25,7 @@ export default function VideoPlayerPage() {
     setLoading(true);
     API.get(`/video/${id}`)
       .then((res) => {
-        console.log("Backend response payload:", res.data); // 🔍 Debug exactly what you get back
+        console.log("Backend response payload:", res.data); //  Debug exactly what you get back
 
         // If your backend mistakenly wraps the single video object inside an array:
         const data = Array.isArray(res.data) ? res.data[0] : res.data;
@@ -152,7 +152,7 @@ export default function VideoPlayerPage() {
               className={`action-btn-layout like-button-node ${isLiked ? 'active-liked-state' : ''}`}
               onClick={handleLikeToggle}
             >
-              👍 {isLiked ? 'Liked' : 'Like'} ({likeCount})
+              {isLiked ? 'Liked' : 'Like'} ({likeCount})
             </button>
           </div>
         </div>
@@ -180,7 +180,7 @@ export default function VideoPlayerPage() {
 
           <div className="comments-feed-list-stack">
             {comments.map((comment, index) => {
-              // 🎯 Checked against your model 'content' parameter tracking requirements
+              //  Checked against your model 'content' parameter tracking requirements
               const commentText = comment.content || '';
               const containsUrl = checkIsUrl(commentText);
 
@@ -199,7 +199,7 @@ export default function VideoPlayerPage() {
                           title="Click to mount track pointer link resource into media player panel viewport frame assembly."
                           style={{ color: '#00d2ff', cursor: 'pointer', textDecoration: 'underline' }}
                         >
-                          {commentText} 🔗 (Click to Play this Cloud Stream)
+                          {commentText}  (Click to Play this Cloud Stream)
                         </span>
                       </p>
                     ) : (
