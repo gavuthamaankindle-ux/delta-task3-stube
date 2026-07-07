@@ -10,7 +10,7 @@ import (
 func ProtectedRoutes(router *gin.Engine, client *mongo.Client) {
 	router.Use(middleware.AuthMiddleWare())
 
-	 router.Use(middleware.AuthMiddleWare())
+	 
 	router.PATCH("/video/:id/like", controllers.Addlikes(client))
 	router.PATCH("/video/:id/removelike", controllers.Removelikes(client))
 	router.POST("/video/request-upload", controllers.RequestVideoUpload(client))
