@@ -110,18 +110,9 @@ The service uses a hybrid approach for identity verification, supporting both tr
 
 ### 1. Environment Configuration
 
-Create a `.env` file inside the root repository location:
+Create a `.env` file inside the root repository location: (Refer .env.example)
 
-```env
-PORT=8081
-MONGO_URI=mongodb+srv://<username>:<password>@cluster0.example.com/
-DATABASE_NAME=magicstream_db
-SECRET_KEY=your_cryptographically_secure_jwt_access_secret_string
-SECRET_REFRESH_KEY=your_cryptographically_secure_jwt_refresh_secret_string
-GOOGLE_CLIENT_ID=your_google_developer_console_client_id.apps.googleusercontent.com
-GOOGLE_CLIENT_SECRET=your_google_developer_console_client_secret
 
-```
 
 ### 2. Install Project Dependencies
 
