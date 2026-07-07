@@ -4,7 +4,7 @@ This repository houses the backend services for **MagicStream**, a full-stack vi
 
 ---
 
-## 🏛️ System Architecture
+##  System Architecture
 
 The service uses a decoupled, controller-runtime route architecture optimized for high-throughput HTTP networking and concurrent request processing via Go routines.
 
@@ -65,7 +65,7 @@ The storage backend uses MongoDB collections. The primary target structure mappe
 
 ---
 
-## 🔐 Authentication Flows
+##  Authentication Flows
 
 The service uses a hybrid approach for identity verification, supporting both traditional standard credentials and external Google OAuth2 federation pipelines.
 
@@ -101,7 +101,7 @@ The service uses a hybrid approach for identity verification, supporting both tr
 
 ---
 
-## 🛠️ Local Setup Instructions
+##  Local Setup Instructions
 
 ### Prerequisites
 
