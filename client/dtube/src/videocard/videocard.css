@@ -1,0 +1,157 @@
+.watch-page-wrapper {
+  display: flex;
+  justify-content: center;
+  background-color: #0f172a;
+  min-height: 100vh;
+  padding: 24px;
+  color: #f8fafc;
+}
+
+.media-playback-column {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.video-frame-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.html5-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.video-meta-summary-card {
+  padding: 16px 0;
+  border-bottom: 1px solid #334155;
+}
+
+.watch-video-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.engagement-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.action-btn-layout {
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.1s ease;
+}
+
+.like-button-node {
+  background-color: #334155;
+  color: #f8fafc;
+}
+
+.like-button-node:hover {
+  background-color: #475569;
+}
+
+.active-liked-state {
+  background-color: #2563eb !important;
+  color: #ffffff;
+}
+
+/* Comments Node Design System */
+.comments-section-container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.comment-input-form-layout {
+  display: flex;
+  gap: 12px;
+}
+
+.comment-input-form-layout input {
+  flex: 1;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  padding: 12px;
+  border-radius: 6px;
+  color: #f8fafc;
+}
+
+.submit-comment-btn {
+  background-color: #2563eb;
+  border: none;
+  color: white;
+  padding: 0 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.comments-feed-list-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comment-card-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background-color: #1e293b;
+  padding: 14px;
+  border-radius: 8px;
+}
+
+.user-avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #4f46e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.comment-content-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.commenter-username-label {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* The Magic Bridge Hook */
+.interactive-stream-link-anchor {
+  color: #38bdf8;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  word-break: break-all;
+}
+
+.interactive-stream-link-anchor:hover {
+  color: #7dd3fc;
+}
