@@ -14,7 +14,7 @@ const Login = () => {
   const [searchParams] = useSearchParams();
   const { auth, setAuth } = useAuth();
 
-  // 🎯 OAuth Catch Mechanics: Capture url parameters on callback landing
+  //  OAuth Catch Mechanics: Capture url parameters on callback landing
   useEffect(() => {
     const token = searchParams.get('token');
 
@@ -31,7 +31,7 @@ const Login = () => {
         user_id: userId,
         id: userId,
         first_name: firstName || 'User',
-        user_role: userRole || 'user' // 🎯 Extracted user role saved safely
+        user_role: userRole || 'user' //  Extracted user role saved safely
       };
 
       setAuth(oAuthSessionPayload);
@@ -58,7 +58,7 @@ const Login = () => {
     try {
       const response = await api.post('/login', { email, password });
 
-      // 🛠️ FIX: Standardize the data format coming from the backend JSON response
+
       const backendData = response.data;
 
       const loginSessionPayload = {
@@ -66,7 +66,7 @@ const Login = () => {
         user_id: backendData.user_id || backendData.id,
         id: backendData.user_id || backendData.id,
         first_name: backendData.first_name || 'User',
-        // 🎯 Dynamically safeguards the user_role assignment for standard logins
+        // Dynamically safeguards the user_role assignment for standard logins
         user_role: backendData.user_role || backendData.role || 'user'
       };
 
