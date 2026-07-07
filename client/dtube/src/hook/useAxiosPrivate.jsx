@@ -41,7 +41,7 @@ const useAxiosPrivate = () => {
 
         if (originalRequest.url.includes('/refresh') && error.response.status === 401) {
           //edge case where the refresh token is invalid or expired
-          console.error('❌ Refresh token has expired or is invalid.');
+          console.error(' Refresh token has expired or is invalid.');
           return Promise.reject(error); // fail directly, no retry
         }
 
