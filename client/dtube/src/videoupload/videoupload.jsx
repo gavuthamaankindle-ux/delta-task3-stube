@@ -61,7 +61,7 @@ const VideoUpload = () => {
 
       // STEP 2: Concurrently push binaries to Supabase using PUT requests 🎯
       const videoUplink = fetch(uploadUrl, {
-        method: 'PUT', // 🎯 FIX: Changed from POST to PUT for Supabase Signed URLs
+        method: 'PUT',
         headers: {
           'Content-Type': videoFile.type || 'video/mp4' // Pass content type explicitly
         },
@@ -69,7 +69,7 @@ const VideoUpload = () => {
       });
 
       const thumbnailUplink = fetch(thumbnailUrl, {
-        method: 'PUT', // 🎯 FIX: Changed from POST to PUT for Supabase Signed URLs
+        method: 'PUT', 
         headers: {
           'Content-Type': thumbnailFile.type || 'image/png' // Pass content type explicitly
         },
