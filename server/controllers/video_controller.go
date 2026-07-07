@@ -156,7 +156,7 @@ func getSupabaseSignedPath(supabaseURL, supabaseKey, bucketName, uniquePath stri
 		return "", err
 	}
 
-	// 🎯 FIX: Added mandatory api... key header required by Supabase's Kong Gateway
+	//  Added mandatory api... key header required by Supabase's Kong Gateway
 	req.Header.Set("Authorization", "Bearer "+supabaseKey)
 	req.Header.Set("apikey", supabaseKey)
 	req.Header.Set("Content-Type", "application/json")
@@ -239,7 +239,6 @@ func RequestVideoUpload(client *mongo.Client) gin.HandlerFunc {
 		publicThumbURL := fmt.Sprintf("%s/storage/v1/object/public/%s/%s", cleanBaseURL, bucketName, uniqueThumbPath)
 
 		// 3. Hydrate explicit nested structure layouts cleanly
-		// 🎯 FIX: Used primitive.NewObjectID() matching the official MongoDB Go driver
 		newVideoID := bson.NewObjectID()
 		videoMetadata := model.Video{
 			ID:         uuid.New().String(),
@@ -267,7 +266,6 @@ func RequestVideoUpload(client *mongo.Client) gin.HandlerFunc {
 		}
 
 		// 4. Return links to your React UI
-		// 🎯 FIX: Intelligently checks if Supabase output already returns full endpoint domains
 		finalVideoURL := videoSignURL
 		if !strings.HasPrefix(videoSignURL, "http") {
 			if strings.HasPrefix(videoSignURL, "/object") {
