@@ -10,7 +10,7 @@ export default function HomeVideoGrid() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // 👑 Admin Management States
+  //  Admin Management States
   const [users, setUsers] = useState([]);
   const [adminLoading, setAdminLoading] = useState(false);
   const [viewMode, setViewMode] = useState('videos');
@@ -35,7 +35,7 @@ export default function HomeVideoGrid() {
     }
   };
 
-  // 🔨 Handle Ban Action
+  //  Handle Ban Action
   const handleBanUser = async (userId) => {
     if (!window.confirm("Are you sure you want to ban this user?")) return;
     try {
@@ -54,7 +54,7 @@ export default function HomeVideoGrid() {
     }
   };
 
-  // 🔓 Handle Unban Action
+  //  Handle Unban Action
   const handleUnbanUser = async (userId) => {
     if (!window.confirm("Are you sure you want to unban this user?")) return;
     try {
@@ -93,7 +93,7 @@ export default function HomeVideoGrid() {
       });
   }, []);
 
-  // 👑 Fetch Users if Current Session belongs to an Admin
+  //  Fetch Users if Current Session belongs to an Admin
   useEffect(() => {
     if (isAdmin) {
       setAdminLoading(true);
@@ -123,7 +123,7 @@ export default function HomeVideoGrid() {
 
   if (error) return <div className="grid-error">{error}</div>;
 
-  // 🛠️ Block access completely if user has been flagged as BANNED
+  //  Block access completely if user has been flagged as BANNED
   if (auth?.role === 'BANNED') {
     return (
       <div className="banned-container">
@@ -152,7 +152,7 @@ export default function HomeVideoGrid() {
                   className={`nav-btn admin-toggle-btn ${viewMode === 'users' ? 'active-tab' : ''}`}
                   onClick={() => setViewMode(viewMode === 'videos' ? 'users' : 'videos')}
                 >
-                  {viewMode === 'videos' ? '🛡️ Admin Dashboard' : '📺 View Videos'}
+                  {viewMode === 'videos' ? ' Admin Dashboard' : 'View Videos'}
                 </button>
               )}
               <button className="nav-btn mychannel-btn" onClick={() => navigate(`/mychannel/${auth.user_id}`)}>
